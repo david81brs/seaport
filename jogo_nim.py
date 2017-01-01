@@ -8,25 +8,29 @@
 def computador_escolhe_jogada(n, m):
     while True:
         if (n-m) % (m+1) == 0:
+            print("O computador jogou {}".format(m))
             return m
         else:
             m=m-1
+            print("O computador jogou {}".format(m))
             return m
 
 
 def usuario_escolhe_jogada(n,m):
     while True:
-        m_user=int(input("Quantas peças você vai tirar"))
-	print(m_user)
-	if m_user>m:
-	    print("Oops! Jogada inválida! Tente de novo.")
-	else:
+        m_user=int(input("Quantas peças você vai tirar? "))
+        print(m_user)
+        if m_user>m:
+            print("Oops! Jogada inválida! Tente de novo.")
+        else:
             break
+    print("Usuário jogou {}".format(m_user))
     return int(m_user)
 
 
 def campeonato():
     rodada=1
+    print("*** Rodada {} ***".format(rodada))
     print("Quantas peças?")
     n = int(input())
     print("Limite de peças por jogada? ")
@@ -34,8 +38,13 @@ def campeonato():
     while rodada<=3:
         if (n-m) % (m+1) == 0:
             print("Computador começa!")
+            n=n-computador_escolhe_jogada(n,m)
+            usuario_escolhe_jogada(n,m)
+
         else:
             print("Você começa!")
+            n=n-usuario_escolhe_jogada(n,m)
+            computador_escolhe_jogada(n,m)
         rodada+=1
 
 def partida():
@@ -45,12 +54,17 @@ def partida():
     print("Limite de peças por jogada? ")
     m = int(input())
     if (n-m) % (m+1) == 0:
-        f=usuario_escolhe_jogada(n,m)
-        n=n-f
-    else:
         print("Computador começa!")
         f=computador_escolhe_jogada(n,m)
         n=n-f
+        usuario_escolhe_jogada(n,m)
+
+    else:
+        print("Você começa!")
+        f=usuario_escolhe_jogada(n,m)
+        n=n-f
+        computador_escolhe_jogada(n,m)
+
     print("Fim de jogo!")
 
 
@@ -66,7 +80,7 @@ def main():
         campeonato()
     elif choicy=='1':
         print("Você escolheu uma partida apenas.")
-	partida()
+        partida()
     else:
         print("Você não escolheu nenhuma da opções.")
 
