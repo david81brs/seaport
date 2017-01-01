@@ -40,38 +40,35 @@ def campeonato():
 
 def partida():
 
-	print("Quantas peças?")
-	n = int(input())
-	print("Limite de peças por jogada? ")
-	m = int(input())
-	if (n-m) % (m+1) == 0:
-		f=usuario_escolhe_jogada(n,m)
-		n=n-f
-	else:
-		print("Computador começa!")
-		f=computador_escolhe_jogada(n,m)
-		n=n-f
-	print("Fim de jogo!")
+    print("Quantas peças?")
+    n = int(input())
+    print("Limite de peças por jogada? ")
+    m = int(input())
+    if (n-m) % (m+1) == 0:
+        f=usuario_escolhe_jogada(n,m)
+        n=n-f
+    else:
+        print("Computador começa!")
+        f=computador_escolhe_jogada(n,m)
+        n=n-f
+    print("Fim de jogo!")
 
 
 
 def main():
-	print("Bem-vindo ao jogo do NIM! Escolha:")
-	print("1 - para jogar uma partida isolada")
-	print("2 - para jogar um campeonato", end=" ")
-	choicy = input()
+    print("Bem-vindo ao jogo do NIM! Escolha:")
+    print("1 - para jogar uma partida isolada")
+    print("2 - para jogar um campeonato", end=" ")
+    choicy = input()
 
-	if choicy=='2':
-		print("Você escolheu um campeonato!")
-                campeonato()
-	elif choicy=='1':
-		print("Você escolheu uma partida apenas.")
-		partida()
-	else:
-		print("Você não escolheu nenhuma da opções.")
-
-
-
+    if choicy=='2':
+        print("Você escolheu um campeonato!")
+        campeonato()
+    elif choicy=='1':
+        print("Você escolheu uma partida apenas.")
+	partida()
+    else:
+        print("Você não escolheu nenhuma da opções.")
 
 if __name__== '__main__':
 	main()
