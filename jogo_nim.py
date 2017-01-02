@@ -36,7 +36,7 @@ def usuario_escolhe_jogada(n,m):
 		print("Quantas peças você vai tirar? ", end="")
 		m_user=int(input())
 
-		if m_user>m:
+		if m_user>m or m_user<=0:
 
 			print("Oops! Jogada inválida! Tente de novo.")
 
@@ -65,7 +65,7 @@ def campeonato():
 			while n>=0:
 
 				sleepy()
-				
+
 
 				if n>=0:
 					f=computador_escolhe_jogada(n,m)
@@ -102,7 +102,7 @@ def campeonato():
 					except:
 						n=0
 						break
-		
+
 			if n==0 and vez=="C":
 						print("O computador ganhou!", end="")
 						placar[0]=placar[0]+1
@@ -116,11 +116,11 @@ def campeonato():
 		else:
 
 			print("\nVocê começa!\n")
-			
+
 			while n>=0:
 
 				u=usuario_escolhe_jogada(n,m)
-				
+
 				if n>=0:
 					try:
 						n=n-u
@@ -141,13 +141,13 @@ def campeonato():
 				sleepy()
 
 				f=computador_escolhe_jogada(n,m)
-								
+
 				if n>=0:
 					try:
 						n=n-f
 						vez="C"
 						if f==0:
-							print("O computador tirou uma peça.")	
+							print("O computador tirou uma peça.")
 						else:
 							print("O computador tirou {} peças.".format(f))
 						if n==1:
@@ -166,7 +166,7 @@ def campeonato():
 			if n==0 and vez=="U":
 						print("Usuário venceu!")
 						placar[1]=placar[1]+1
-			
+
 			print(" Fim do jogo!".format(rodada))
 
 		rodada+=1
@@ -210,7 +210,7 @@ def partida():
 				except:
 					n=0
 					break
-	
+
 		if n==0 and vez=="C":
 					print("Computador venceu!")
 
@@ -238,7 +238,7 @@ def partida():
 
 			f=computador_escolhe_jogada(n,m)
 			n=n-f
-			
+
 			if n>=0:
 
 				vez="C"
@@ -249,7 +249,7 @@ def partida():
 					print("Computador venceu!")
 		if n==0 and vez=="U":
 					print("Usuário venceu!")
-		
+
 		print("Fim de jogo!")
 
 def main():
@@ -259,7 +259,7 @@ def main():
 	print("Bem-vindo ao jogo do NIM! Escolha:")
 	print("1 - para jogar uma partida isolada")
 	print("2 - para jogar um campeonato", end=" ")
-	
+
 	choicy = input()
 
 	if choicy=='2':
