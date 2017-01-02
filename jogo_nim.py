@@ -15,15 +15,17 @@ def sleepy():
 
 def computador_escolhe_jogada(n, m):
 
-	while True:
+	comput=1
+	while comput<=m:
 
-		if (n-m) % (m+1) == 0:
+		if (n-comput) % (m+1) == 0:
 
-			return m
+			return comput
 
 		else:
-			
-			m=m-1
+			comput+=1
+
+		if comput==m:
 			return m
 
 
