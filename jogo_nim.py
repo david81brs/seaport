@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
@@ -9,55 +10,34 @@ import time
 import os
 
 def sleepy():
-<<<<<<< HEAD
-=======
 
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
 	time.sleep(0)
 	return
 
 def computador_escolhe_jogada(n, m):
 
-<<<<<<< HEAD
-		if (n-m) % (m+1) == 0:
-			return m
-		else:
-			while m<=n:
-				if m<=n:
-					return m
-				else:
-					m=m-1
-
-
-=======
     comput=1
     jogcp=True
-    while comput<m and jogcp:
+    while comput<=m and jogcp:
 	    if ((n-comput) % (m+1)) == 0:
 		    jogcp=False
 	    else:
 	        comput+=1
 	    return comput
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
 
 def usuario_escolhe_jogada(n,m):
 
 	while n>0:
 
-		print("Quantas peças você vai tirar? ", end="")
+		print("\nQuantas peças você vai tirar? ", end="")
 		m_user=int(input())
 
-<<<<<<< HEAD
-		if m_user>m or m_user>n:
-=======
-		if m_user>m or m_user<=0:
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
+		if m_user>m or m_user<=0 or m_user>n:
 
 			print("Oops! Jogada inválida! Tente de novo.")
 
 		else:
 			return m_user
-			break
 
 
 def campeonato():
@@ -70,27 +50,14 @@ def campeonato():
 		print("\n*** Rodada {} ***\n".format(rodada))
 		print("Quantas peças? ", end="")
 		n = int(input())
-
-		while True:
-			print("Limite de peças por jogada? ", end="")
-			m = int(input())
-			if n<m:
-				print("Inválido, entre novo limite.")
-			else:
-				break
+		print("Limite de peças por jogada? ", end="")
+		m = int(input())
 
 		if (n-m) % (m+1) == 0:
 
 			print("\nComputador começa!\n")
 
 			while n>=0:
-
-<<<<<<< HEAD
-				sleepy()
-=======
-				#sleepy()
-
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
 
 				if n>=0:
 					f=computador_escolhe_jogada(n,m)
@@ -100,8 +67,7 @@ def campeonato():
 						if f==1:
 							print("O computador tirou uma peça.")
 						else:
-							if n!=0:
-								print("O computador tirou {} peças.".format(f))
+							print("O computador tirou {} peças.".format(f))
 						if n==1:
 							print("Agora resta apenas uma peça no tabuleiro.\n")
 						else:
@@ -119,8 +85,7 @@ def campeonato():
 						if u==1:
 							print("Você tirou uma peça.")
 						else:
-							if n!=0:
-								print("Você tirou {} peças.".format(u))
+							print("Você tirou {} peças.".format(u))
 						if n==1:
 							print("Agora resta apenas uma peça.\n")
 						else:
@@ -135,7 +100,7 @@ def campeonato():
 						placar[0]=placar[0]+1
 
 			if n==0 and vez=="U":
-						print("Usuário venceu!", end="")
+						print("Você venceu!", end="")
 						placar[1]=placar[1]+1
 
 			print(" Fim de jogo!")
@@ -145,63 +110,34 @@ def campeonato():
 			print("\nVocê começa!\n")
 
 			while n>=0:
-<<<<<<< HEAD
-				
-=======
 
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
 				if n>=0:
-					u=usuario_escolhe_jogada(n,m)
 					try:
-<<<<<<< HEAD
-						n=n-u
-						vez="U"
-						if u==1:
-							print("Você tirou uma peça.")
-						else:
-							print("Você tirou {} peças.".format(u))
-						if n==1:
-							print("Agora resta apenas uma peça.\n")
-						else:
-							if n!=0:
-								print("Agora restam {} peças no tabuleiro\n".format(n))
-					except:
-						n=0
-						break
-
-				sleepy()
-								
-=======
 					    u=usuario_escolhe_jogada(n,m)
 					    n=n-u
 					    vez="U"
 					    if u==1:
 					        print("Você tirou uma peça.")
 					    else:
-					        print("Você tirou {} peças.".format(u)
-				        if n==1:
-				            print("Agora resta apenas uma peça.\n")
-				        else:
-				            if n!=0:
-				                print("Agora restam {} peças no tabuleiro\n".format(n))
-				    except:
-				        n=0
-				        break
+					        print("Você tirou {} peças.".format(u))
+					    if n==1:
+					    	print("Agora resta apenas uma peça.\n")
+					    else:
+					    	if n!=0:
+					    		print("Agora restam {} peças no tabuleiro\n".format(n))
+					except:
+						n=0
+						break
 
-				#sleepy()
-
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
 				if n>=0:
-					f=computador_escolhe_jogada(n,m)
 					try:
-					    f=computador_escolhe_jogada(n,m)
+						f=computador_escolhe_jogada(n,m)
 						n=n-f
 						vez="C"
 						if f==0:
 							print("O computador tirou uma peça.")
 						else:
-							if n!=0:
-								print("O computador tirou {} peças.".format(f))
+							print("O computador tirou {} peças.".format(f))
 						if n==1:
 							print("Agora resta apenas uma peça.\n")
 						else:
@@ -216,11 +152,7 @@ def campeonato():
 						placar[0]=placar[0]+1
 
 			if n==0 and vez=="U":
-<<<<<<< HEAD
-						print("Usuário venceu!", end="")
-=======
-						print("Usuário venceu!",end="")
->>>>>>> 76217dddd0c8372aadec395d33c1c90abec501f8
+						print("Você venceu!",end="")
 						placar[1]=placar[1]+1
 
 			print(" Fim do jogo!".format(rodada))
@@ -232,79 +164,109 @@ def campeonato():
 
 def partida():
 
-	print("Quantas peças?")
+	print("\nQuantas peças? ", end="")
 	n = int(input())
-	print("Limite de peças por jogada? ")
+	print("Limite de peças por jogada? ", end="")
 	m = int(input())
 
 	if (n-m) % (m+1) == 0:
 
-		print("Computador começa!")
+		print("\nComputador começa!\n")
 
 		while n>=0:
 
-			sleepy()
-
 			if n>=0:
-				f=computador_escolhe_jogada(n,m)
+				
 				try:
+					f=computador_escolhe_jogada(n,m)
 					n=n-f
 					vez="C"
-					print("O computador tirou {}".format(f))
-					print("Restam {} peças".format(n))
+					if f==1:
+						print("O computador tirou uma peça.")
+					print("O computador tirou {} peças.".format(f))
+					if n==1:
+						print("Agora resta uma peça no tabuleiro.")
+					else:
+						if n!=0:
+							print("Agora restam {} peças no tabuleiro.".format(n))
 				except:
 					n=0
 					break
 
 			if n>=0:
-				u=usuario_escolhe_jogada(n,m)
+				
 				try:
+					u=usuario_escolhe_jogada(n,m)
 					n=n-u
 					vez="U"
-					print("Você tirou {}".format(u))
-					print("Restam {} peças".format(n))
+					if u==1:
+						print("Você tirou uma peça.")
+					else:
+						print("Você tirou {} peças.".format(u))
+					if n==1:
+						print("Agora resta apenas uma peça no tabuleiro.")
+					else:
+						if n!=0:
+							print("Agora restam {} peças no tabuleiro.".format(n))
 				except:
 					n=0
 					break
 
 		if n==0 and vez=="C":
-					print("Computador venceu!")
+					print("O computador ganhou!")
 
 		if n==0 and vez=="U":
-					print("Usuário venceu!")
+					print("Você venceu!")
 
-		print("Fim de jogo!")
+		print(" Fim de jogo!")
 
 	else:
 
-		print("Você começa!")
+		print("\nVocê começa!\n")
 
-		while n!=0:
+		while n>=0:
 
-			u=usuario_escolhe_jogada(n,m)
-			n=n-u
+			try:
 
-			if n>=0:
+				if n>=0:
+					u=usuario_escolhe_jogada(n,m)
+					n=n-u
+					vez="U"
+					if u==1:
+						print("Você tirou uma peça.")
+					else:
+						print("Você tirou {} peças.".format(u))
+					if n==1:
+						print("Agora resta uma peça no tabuleiro.")
+					else:
+						if n!=0:
+							print("Agora restam {} peças no tabuleiro".format(n))
+			except:
+				n=0
+				break
 
-				vez="U"
-				print("Você tirou {}".format(u))
-				print("Restam {} peças".format(n))
-
-			sleepy()
-
-			f=computador_escolhe_jogada(n,m)
-			n=n-f
-
-			if n>=0:
-
-				vez="C"
-				print("O computador tirou {}".format(f))
-				print("Restam {} peças".format(n))
+			try:
+				if n>=0:
+					f=computador_escolhe_jogada(n,m)
+					n=n-f
+					vez="C"
+					if f==1:
+						print("O computador tirou uma peça.")
+					else:
+						print("O computador tirou {} peças.".format(f))
+					if n==1:
+						print("Agora resta uma peça no tabuleiro.")
+					else:
+						if n!=0:
+							print("Agora restam {} peças no tabuleiro.".format(n))
+			except:
+				n=0
+				break
 
 		if n==0 and vez=="C":
-					print("Computador venceu!")
+					print("O computador ganhou!", end="")
 		if n==0 and vez=="U":
-					print("Usuário venceu!")
+					print("Você venceu!", end="")
 
 		print("Fim de jogo!")
 
