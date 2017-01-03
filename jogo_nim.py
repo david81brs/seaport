@@ -10,24 +10,19 @@ import os
 
 def sleepy():
 
-	time.sleep(1)
+	time.sleep(0)
 	return
 
 def computador_escolhe_jogada(n, m):
 
-	comput=1
-	while comput<=m:
-
-		if (n-comput) % (m+1) == 0:
-
-			return comput
-
-		else:
-			comput+=1
-
-		if comput==m:
-			return m
-
+    comput=1
+    jogcp=True
+    while comput<m and jogcp:
+	    if ((n-comput) % (m+1)) == 0:
+		    jogcp=False
+	    else:
+	        comput+=1
+	    return comput
 
 def usuario_escolhe_jogada(n,m):
 
@@ -64,7 +59,7 @@ def campeonato():
 
 			while n>=0:
 
-				sleepy()
+				#sleepy()
 
 
 				if n>=0:
@@ -119,31 +114,29 @@ def campeonato():
 
 			while n>=0:
 
-				u=usuario_escolhe_jogada(n,m)
+				if n>=0:
+					try:
+					    u=usuario_escolhe_jogada(n,m)
+					    n=n-u
+					    vez="U"
+					    if u==1:
+					        print("Você tirou uma peça.")
+					    else:
+					        print("Você tirou {} peças.".format(u)
+				        if n==1:
+				            print("Agora resta apenas uma peça.\n")
+				        else:
+				            if n!=0:
+				                print("Agora restam {} peças no tabuleiro\n".format(n))
+				    except:
+				        n=0
+				        break
+
+				#sleepy()
 
 				if n>=0:
 					try:
-						n=n-u
-						vez="U"
-						if u==1:
-							print("Você tirou uma peça.")
-						else:
-							print("Você tirou {} peças.".format(u))
-						if n==1:
-							print("Agora resta apenas uma peça.\n")
-						else:
-							if n!=0:
-								print("Agora restam {} peças no tabuleiro\n".format(n))
-					except:
-						n=0
-						break
-
-				sleepy()
-
-				f=computador_escolhe_jogada(n,m)
-
-				if n>=0:
-					try:
+					    f=computador_escolhe_jogada(n,m)
 						n=n-f
 						vez="C"
 						if f==0:
@@ -164,7 +157,7 @@ def campeonato():
 						placar[0]=placar[0]+1
 
 			if n==0 and vez=="U":
-						print("Usuário venceu!")
+						print("Usuário venceu!",end="")
 						placar[1]=placar[1]+1
 
 			print(" Fim do jogo!".format(rodada))
